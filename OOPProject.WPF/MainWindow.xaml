@@ -1,0 +1,56 @@
+﻿<Window x:Class="OOPProject.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OOPProject.WPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Label Style="{StaticResource ApplictionHeadingLabel}" FontSize="24">Mathematical Shapes</Label>
+
+        <Grid Grid.Row="1" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid Margin="0,5,5,5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Style="{StaticResource PanelDefaultHeadingLabel}" Content="Shape Selection"></Label>
+                <Border Grid.Row="1" Style="{StaticResource PanelDefaultBodyContainer}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TabControl Margin="0,5,0,5" Name="tcShapes" SelectionChanged="tcShapes_SelectionChanged">
+                            <TabItem Header="2D Shapes"></TabItem>
+                            <TabItem Header="3D Shapes"></TabItem>
+                        </TabControl>
+                        <DockPanel Grid.Row="1" Name="docShapes">
+                            <ScrollViewer Width="{Binding Source=docShape, Path=ActualWidth}" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden">
+                                <StackPanel Name="wrpSelectableShapes">
+
+                                </StackPanel>
+                            </ScrollViewer>
+                        </DockPanel>
+                    </Grid>
+
+                </Border>
+            </Grid>
+
+            <DockPanel Name="docMainContainer" Grid.Column="1"></DockPanel>
+
+        </Grid>
+
+    </Grid>
+</Window>
