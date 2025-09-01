@@ -112,6 +112,7 @@ namespace SoftwareFundamentalsToolkit.ChatBot.Core
             }
             else
             {
+                MemoryNodes = [];
                 OnConsoleMessage($"No memory file, will create one after exit");
             }
 
